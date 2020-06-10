@@ -22,6 +22,7 @@ printf '\033]2;install.sh\a'
 
 G="\033[1;34m[*] \033[0m"
 S="\033[1;32m[+] \033[0m"
+I="\033[1;77m[i] \033[0m"
 E="\033[1;31m[-] \033[0m"
 
 if [[ $(id -u) != 0 ]]
@@ -59,6 +60,7 @@ apt-get -y install git
 apt-get -y install python3
 apt-get -y install adb
 apt-get -y install android-tools-adb
+apt-get -y install android-tools-fastboot
 apk update
 apk add git
 apk add python3
