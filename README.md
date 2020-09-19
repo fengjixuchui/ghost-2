@@ -1,6 +1,20 @@
+# `Someone add Streaming Webcam option to Ghost please, I do not know how to do this`
+
+**what should be added:**
+
+* Streaming webcam (frontal)
+* Recording webcam (frontal)
+* Making photos (frontal)
+
+# `Ghost Framework v6.0 coming soon`
+
+* Bug fixes
+* More features
+* Screen control support
+
 # Ghost Framework
 
-![ghost](https://user-images.githubusercontent.com/54115104/74161285-c0339000-4c2f-11ea-8c8a-5673cc70a786.jpeg)
+<h3 align="center"><img src="https://user-images.githubusercontent.com/54115104/91632566-45bf3780-e9ea-11ea-9b85-1ee4f451ae39.png" alt="logo" height="250px"></h3>
 
 <p align="center">
   <a href="http://entynetproject.simplesite.com/">
@@ -23,7 +37,7 @@
  </a>
 </p>
 
-![ghost](https://user-images.githubusercontent.com/54115104/83800104-922afd80-a6af-11ea-94c8-224550d0db1e.png)
+![ghost](https://user-images.githubusercontent.com/54115104/91609495-31deeb80-e980-11ea-956a-c5ab09cec77c.png)
 
 ***
 
@@ -92,7 +106,7 @@ Ghost Framework can be used to access the remote Android
 device shell without using OpenSSH or other protocols.
 ``` 
 
-![shell](https://user-images.githubusercontent.com/54115104/83800108-92c39400-a6af-11ea-8963-5714aaf40756.png)
+![shell](https://user-images.githubusercontent.com/54115104/91609504-36a39f80-e980-11ea-8995-7d58a88b4d6f.png)
 
 ***
 
@@ -102,28 +116,4 @@ device shell without using OpenSSH or other protocols.
 Usage of the Ghost Framework for attacking targets without prior mutual consent is illegal.
 It is the end user's responsibility to obey all applicable local, state, federal, and international laws.
 Developers assume no liability and are not responsible for any misuse or damage caused by this program.
-```
-  
-***
-
-# Ghost Framework license
-
-```
-    ---------------------------------------------------
-                      Ghost Framework                  
-    ---------------------------------------------------
-        Copyright (C) <2019-2020>  <Entynetproject>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ```

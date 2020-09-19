@@ -7,6 +7,8 @@
     keycode        Use device keycode.
     keycodes       List device keycodes.
     launch         Launch an application.
+    openurl        Open URL on device.
+    screen         Open device screen.
     screenrec      Record device screen.
     screenshot     Take device screenshot.
     shell          Open device shell.

