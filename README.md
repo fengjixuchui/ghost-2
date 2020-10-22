@@ -1,39 +1,25 @@
-# `Someone add Streaming Webcam option to Ghost please, I do not know how to do this`
-
-**what should be added:**
-
-* Streaming webcam (frontal)
-* Recording webcam (frontal)
-* Making photos (frontal)
-
-# `Ghost Framework v6.0 coming soon`
-
-* Bug fixes
-* More features
-* Screen control support
-
 # Ghost Framework
 
 <h3 align="center"><img src="https://user-images.githubusercontent.com/54115104/91632566-45bf3780-e9ea-11ea-9b85-1ee4f451ae39.png" alt="logo" height="250px"></h3>
 
 <p align="center">
-  <a href="http://entynetproject.simplesite.com/">
-    <img src="https://img.shields.io/badge/entynetproject-Ivan%20Nikolsky-blue.svg">
+  <a href="http://EntySec.simplesite.com/">
+    <img src="https://img.shields.io/badge/EntySec-Ivan%20Nikolsky-blue.svg">
   </a> 
-  <a href="https://github.com/entynetproject/ghost/releases">
-    <img src="https://img.shields.io/github/release/entynetproject/ghost.svg">
+  <a href="https://github.com/EntySec/ghost/releases">
+    <img src="https://img.shields.io/github/release/EntySec/ghost.svg">
   </a>
   <a href="https://wikipedia.org/wiki/Python_(programming_language)">
     <img src="https://img.shields.io/badge/language-python-blue.svg">
  </a>
-  <a href="https://github.com/entynetproject/ghost/issues?q=is%3Aissue+is%3Aclosed">
-      <img src="https://img.shields.io/github/issues/entynetproject/ghost.svg">
+  <a href="https://github.com/EntySec/ghost/issues?q=is%3Aissue+is%3Aclosed">
+      <img src="https://img.shields.io/github/issues/EntySec/ghost.svg">
   </a>
-  <a href="https://github.com/entynetproject/ghost/wiki">
+  <a href="https://github.com/EntySec/ghost/wiki">
       <img src="https://img.shields.io/badge/wiki%20-ghost-lightgrey.svg">
  </a>
-  <a href="https://twitter.com/entynetproject">
-    <img src="https://img.shields.io/badge/twitter-entynetproject-blue.svg">
+  <a href="https://twitter.com/EntySec">
+    <img src="https://img.shields.io/badge/twitter-EntySec-blue.svg">
  </a>
 </p>
 
@@ -92,21 +78,19 @@ It is easy to understand and it will be easier
 for you to master the Ghost Framework.
 ```
 
-* Device passcode removal.
-
-```
-Ghost Framework can be used to remotely remove the 
-passcode of an Android device if it has been forgotten.
-```
-
 * Device shell access.
 
 ```
-Ghost Framework can be used to access the remote Android 
+Ghost Framework has the ability to access the remote Android 
 device shell without using OpenSSH or other protocols.
 ``` 
 
-![shell](https://user-images.githubusercontent.com/54115104/91609504-36a39f80-e980-11ea-8995-7d58a88b4d6f.png)
+* Controlling device screen
+
+```
+Ghost Framework has the ability to access device screen 
+and control it remotely using mouse and keyboard.
+```
 
 ***
 
